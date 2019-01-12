@@ -1,4 +1,4 @@
-package com.springmvc.website;
+package com.springmvc.website.controllers;
 
 import java.text.DateFormat;
 import java.util.Date;
