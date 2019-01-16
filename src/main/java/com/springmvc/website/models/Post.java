@@ -2,14 +2,19 @@ package com.springmvc.website.models;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Post")
 public class Post {
 	
-	
+	@javax.persistence.Id
+	@Column(name="Id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long Id;
 	private String title;
 	private Date publishDate;
