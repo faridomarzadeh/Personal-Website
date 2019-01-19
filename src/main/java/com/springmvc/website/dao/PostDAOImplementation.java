@@ -47,7 +47,7 @@ public class PostDAOImplementation implements PostDAO {
 	}
 
 	@Override
-	public Post getPostById(long id) {
+	public Post getPostById(int id) {
 		Session session=this.sessionFactory.getCurrentSession();
 		Post post=session.load(Post.class, id);
 		logger.info("Post Loaded successfully, Post Details="+post);
@@ -55,7 +55,7 @@ public class PostDAOImplementation implements PostDAO {
 	}
 
 	@Override
-	public void removePost(Long id) {
+	public void removePost(int id) {
 		Session session=this.sessionFactory.getCurrentSession();
 		Post post=session.load(Post.class, id);
 		if(post!=null)

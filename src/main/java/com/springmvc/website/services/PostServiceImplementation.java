@@ -39,14 +39,14 @@ public class PostServiceImplementation implements PostService {
 
 	@Override
 	@Transactional
-	public Post getPostById(Long id) {
+	public Post getPostById(int id) {
 		// TODO Auto-generated method stub
 		return postDAO.getPostById(id);
 	}
 
 	@Override
 	@Transactional
-	public void removePost(Long id) {
+	public void removePost(int id) {
 		// TODO Auto-generated method stub
 		postDAO.removePost(id);
 	}

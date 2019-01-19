@@ -8,6 +8,6 @@ public interface PostDAO {
 	public void addPost(Post post);
 	public void updatePost(Post post);
 	public List<Post>getPosts();
-	public Post getPostById(long id);
-	public void removePost(Long id);
+	public Post getPostById(int id);
+	public void removePost(int id);
 }

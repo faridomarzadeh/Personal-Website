@@ -15,16 +15,16 @@ public class Post {
 	@javax.persistence.Id
 	@Column(name="Id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long Id;
+	private int Id;
 	private String title;
 	private Date publishDate;
 	private String content;
 	
 	
-	public long getId() {
+	public int getId() {
 		return Id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		Id = id;
 	}
 	public String getTitle() {
