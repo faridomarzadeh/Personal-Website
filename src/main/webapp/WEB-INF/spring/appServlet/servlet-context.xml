@@ -33,6 +33,7 @@
 	<beans:property name="annotatedClasses">
 	<beans:list>
 	<beans:value>com.springmvc.website.models.Post</beans:value>
+	<beans:value>com.springmvc.website.models.Menu</beans:value>
 	</beans:list>
 	</beans:property>
 		<beans:property name="hibernateProperties">
@@ -44,11 +45,11 @@
 		</beans:property>
 	</beans:bean>
 	
-	<beans:bean id="postDAO" class="com.springmvc.website.dao.PostDAOImplementation">
+	<beans:bean id="iDAO" class="com.springmvc.website.dao.DAOImplementation">
 		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
-	<beans:bean id="postService" class="com.springmvc.website.services.PostServiceImplementation">
-		<beans:property name="postDAO" ref="postDAO"></beans:property>
+	<beans:bean id="iService" class="com.springmvc.website.services.ServiceImplementation">
+		<beans:property name="iDAO" ref="iDAO"></beans:property>
 	</beans:bean>
 	<context:component-scan base-package="com.springmvc.website.controllers" />
 	<context:component-scan base-package="com.springmvc.website.models" />

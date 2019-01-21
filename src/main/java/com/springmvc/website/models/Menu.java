@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Menu {
 	
 	@Id
-	@Column(name="id")
+	@Column(name="Id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private int parentId;

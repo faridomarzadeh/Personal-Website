@@ -1,8 +1,8 @@
-package com.springmvc.website.dao;
+package com.springmvc.website.services;
 
 import java.util.List;
 
-public interface IDAO <T>{
+public interface IService <T>{
 	public void add(T t);
 	public void update(T t);
 	public List<T> getAll(String tablename);
