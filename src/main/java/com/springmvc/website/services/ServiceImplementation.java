@@ -47,5 +47,17 @@ public class ServiceImplementation<T> implements IService<T> {
 	public void remove(int id) {
 		iDAO.remove(id);
 	}
+	
+	@Transactional
+	@Override
+	public T getResultByQuery(String query) {
+		return iDAO.getResultByQuery(query);
+	}
+
+	@Transactional
+	@Override
+	public List<T> getResultsByQuery(String query) {
+		return iDAO.getResultsByQuery(query);
+	}
 
 }

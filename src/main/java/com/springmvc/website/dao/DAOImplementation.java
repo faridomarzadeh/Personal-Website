@@ -54,4 +54,20 @@ public class DAOImplementation<T> implements IDAO<T> {
 			session.delete(entity);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public T getResultByQuery(String query) {
+		Session session=sessionFactory.getCurrentSession();
+		T entity=(T)session.createQuery(query);
+		return entity;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> getResultsByQuery(String query) {
+		Session session=sessionFactory.getCurrentSession();
+		List<T> entities=session.createQuery(query).list();
+		return entities;
+	}
+
 }
