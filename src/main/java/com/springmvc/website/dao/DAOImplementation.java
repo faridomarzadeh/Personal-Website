@@ -2,10 +2,12 @@ package com.springmvc.website.dao;
 
 import java.util.List;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
+
+import com.springmvc.website.models.User;
 @Repository
 public class DAOImplementation<T> implements IDAO<T> {
 	
@@ -19,7 +21,21 @@ public class DAOImplementation<T> implements IDAO<T> {
 	@Override
 	public void add(T t) {
 		Session session=sessionFactory.getCurrentSession();
-		session.persist(t);
+		session.save(t);
+		/*Transaction tx = null;
+		System.out.print("entered2222222222222");
+	    try {
+	        tx = session.beginTransaction();
+	        session.save(t);
+	        tx.commit(); // Flush happens automatically
+	    }
+	    catch (RuntimeException e) {
+	        tx.rollback();
+	        throw e; // or display error message
+	    }
+	    finally {
+	        session.close();
+	    }*/
 		
 	}
 
@@ -68,6 +84,13 @@ public class DAOImplementation<T> implements IDAO<T> {
 		Session session=sessionFactory.getCurrentSession();
 		List<T> entities=session.createQuery(query).list();
 		return entities;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public User getByUsername(String username){
+		Session session=sessionFactory.getCurrentSession();
+		User user=(User) session.createQuery("From User where username='"+username+"'").uniqueResult();
+		return user;
 	}
 
 }

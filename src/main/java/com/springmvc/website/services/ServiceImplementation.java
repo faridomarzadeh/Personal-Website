@@ -7,23 +7,25 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.springmvc.website.dao.IDAO;
+import com.springmvc.website.models.User;
 @Service
 public class ServiceImplementation<T> implements IService<T> {
 	private IDAO<T> iDAO;
 	
+	@SuppressWarnings("unchecked")
 	public void setIDAO(IDAO idao)
 	{
 		this.iDAO=idao;
 	}
 	
-	@Transactional
 	@Override
+	@Transactional
 	public void add(T t) {
 		iDAO.add(t);
 	}
 	
-	@Transactional
 	@Override
+	@Transactional
 	public void update(T t) {
 		iDAO.update(t);
 	}
@@ -58,6 +60,13 @@ public class ServiceImplementation<T> implements IService<T> {
 	@Override
 	public List<T> getResultsByQuery(String query) {
 		return iDAO.getResultsByQuery(query);
+	}
+	
+	@Transactional
+	@Override
+	public User getByUsername(String username) {
+		// TODO Auto-generated method stub
+		return iDAO.getByUsername(username);
 	}
 
 }
