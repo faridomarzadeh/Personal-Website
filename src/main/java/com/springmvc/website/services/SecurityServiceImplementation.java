@@ -1,6 +1,4 @@
 package com.springmvc.website.services;
-import javax.transaction.Transactional;
-
 import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;

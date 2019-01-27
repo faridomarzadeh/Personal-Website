@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.springmvc.website.dao.DAOImplementation;
 import com.springmvc.website.models.Role;
 import com.springmvc.website.models.User;
 

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.springmvc.website.models.User;
@@ -86,6 +85,7 @@ public class DAOImplementation<T> implements IDAO<T> {
 		return entities;
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public User getByUsername(String username){
 		Session session=sessionFactory.getCurrentSession();

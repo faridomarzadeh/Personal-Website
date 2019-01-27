@@ -24,15 +24,11 @@ public class AdminController {
 	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String Index(Model model)
 	{
-		System.out.println("Entered");
 		List<Menu> menues=menuService.getAll("Menu");
-		System.out.println(menues.size());
 		for (Menu menu : menues) {
 			String query="from Menu where parent_id="+menu.getId();
 			menu.setSubMenu(menuService.getResultsByQuery(query));
-			System.out.println(menu.getSubMenu().size()+"submenu");
 		}
-		System.out.println(menues.size());
 		model.addAttribute("PostList",postService.getAll("Post"));
 		model.addAttribute("menuList", menues);
 		return "/admin/index";

@@ -12,9 +12,14 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/admin/admin_header.jsp"></jsp:include>
+<div class="wrapper">
+<div class="description">
+<p>something</p>
+</div>
 <c:forEach items="${PostList}" var="post">
 <p>${post.title}</p>
 </c:forEach>
+</div>
 <script type="text/javascript" src="<spring:url value="/resources/js/main.js"/>"></script>
 </body>
 </html>

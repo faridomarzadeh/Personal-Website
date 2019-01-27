@@ -3,20 +3,20 @@
 <div class="topnav" id="myMenu">
 	<div class="topheader">
 	<c:forEach items="${menuList}" var="menu">
-	<c:if test="${empty menu.isDropdown && empty menu.parentId}">
-	<a href="<spring:url value="/admin${menu.url}"/>"><span class="span">[   </span>${menu.content}<span class="span">   ]</span></a>
+	<c:if test="${empty menu.isDropdown}">
+	<a href="<spring:url value="${menu.url}"/>"><span class="span">[   </span>${menu.content}<span class="span">   ]</span></a>
 	</c:if>
 	</c:forEach>
 		<div class="dropdown">
 		<c:forEach items= "${menuList}" var="menu">
-		   <c:if test="${empty menu.parentId && not empty menu.isDropdown}">
+		   <c:if test="${not empty menu.isDropdown}">
 			<button class="dropbtn">
 				<span class="span">[   </span>${menu.content}<span class="span">   ]</span>
 			</button>
 			</c:if>
 			<c:forEach items="${menu.subMenu}" var="submenu">
 			<div class="dropdown-content">
-				<a href="<spring:url value="/admin${menu.url}"/>"><span class="span">[   </span>${submenu.content}<span class="span">   ]</span></a>
+				<a href="<spring:url value="${menu.url}"/>"><span class="span">[   </span>${submenu.content}<span class="span">   ]</span></a>
 			</div>
 			</c:forEach>
 		</c:forEach>
